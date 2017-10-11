@@ -1,0 +1,34 @@
+<StyleCopSettings Version="105">
+  <GlobalSettings>
+    <StringProperty Name="LinkedSettingsFile">..\CommonCore\Settings.StyleCop</StringProperty>
+    <StringProperty Name="MergeSettingsFiles">Linked</StringProperty>
+    <CollectionProperty Name="RecognizedWords">
+      <Value>Cosd</Value>
+      <Value>Pcb</Value>
+    </CollectionProperty>
+  </GlobalSettings>
+  <Analyzers>
+    <Analyzer AnalyzerId="StyleCop.CSharp.NamingRules">
+      <AnalyzerSettings>
+        <CollectionProperty Name="Hungarian">
+          <Value>au</Value>
+          <Value>cc</Value>
+          <Value>cu</Value>
+          <Value>ec</Value>
+          <Value>fd</Value>
+          <Value>ip</Value>
+          <Value>mf</Value>
+          <Value>ne</Value>
+          <Value>pm</Value>
+          <Value>re</Value>
+          <Value>rf</Value>
+          <Value>ri</Value>
+          <Value>ru</Value>
+          <Value>rx</Value>
+          <Value>tg</Value>
+          <Value>tn</Value>
+        </CollectionProperty>
+      </AnalyzerSettings>
+    </Analyzer>
+  </Analyzers>
+</StyleCopSettings>
