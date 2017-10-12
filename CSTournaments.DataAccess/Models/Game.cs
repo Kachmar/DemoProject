@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using CSTournaments.DataAccess.Models;
 
-namespace CSTournament.Extensibility.Entities
+namespace CSTournaments.DataAccess.Models
 {
     public class Game
     {
         [Key]
-        public Guid Id { get; }
+        public int Id { get; set; }
 
         [StringLength(100)]
-        public string Name { get; }
+        public string Name { get; set; }
 
-        public Tournament Tournament { get; }
+        public Tournament Tournament { get; set; }
 
-        public List<Player> Players { get; set; }
+        public virtual List<Player> Players { get; set; }
     }
 }

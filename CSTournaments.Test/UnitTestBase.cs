@@ -10,7 +10,7 @@ namespace CSTournaments.Test
         [SetUp]
         public void TestSetUp()
         {
-            MockRepository = new MockRepository(MockBehavior.Strict);
+            this.MockRepository = new MockRepository(MockBehavior.Strict);
         }
 
         [TearDown]
@@ -18,7 +18,7 @@ namespace CSTournaments.Test
         {
             if (TestContext.CurrentContext.Result.Status == TestStatus.Passed)
             {
-                MockRepository.VerifyAll();
+                this.MockRepository.VerifyAll();
             }
         }
     }

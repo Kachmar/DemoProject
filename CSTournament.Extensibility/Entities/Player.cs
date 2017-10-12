@@ -1,20 +1,18 @@
-﻿using System;
-
-namespace CSTournament.Extensibility.Entities
+﻿namespace CSTournaments.Extensibility.Entities
 {
     public class Player
     {
-        public Player(Guid id, string name, uint age)
+        public Player(int id, string name, int age)
         {
-            Id = id;
-            Name = name;
-            Age = age;
+            this.Id = id;
+            this.Name = name;
+            this.Age = age;
         }
 
-        public Guid Id { get; }
+        public int Id { get; }
 
         public string Name { get; }
 
-        public uint Age { get; }
+        public int Age { get; }
     }
 }

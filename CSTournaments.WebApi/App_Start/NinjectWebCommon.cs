@@ -66,6 +66,7 @@ namespace CSTournaments.WebApi.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Load("*.Service.dll");
+            kernel.Load("*.DataAccess.dll");
         }
     }
 }

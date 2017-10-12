@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using CSTournament.Extensibility.Entities;
 
 namespace CSTournaments.DataAccess.Models
 {
     public class Tournament
     {
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [StringLength(100)]
         public string Name { get; set; }

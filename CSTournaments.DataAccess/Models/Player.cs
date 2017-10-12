@@ -1,13 +1,15 @@
-﻿using System;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace CSTournament.Extensibility.Entities
+namespace CSTournaments.DataAccess.Models
 {
     public class Player
     {
-        public Guid Id { get; set; }
+        [Key]
+        public int Id { get; set; }
 
+        [StringLength(100)]
         public string Name { get; set; }
 
-        public uint Age { get; set; }
+        public int Age { get; set; }
     }
 }

@@ -1,0 +1,6 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=D953F55F3B9CF84196B4A4A0385A2EF3/AbsolutePath/@EntryValue">C:\Magenta_str\ResharperSettings.DotSettings</s:String>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=D953F55F3B9CF84196B4A4A0385A2EF3/RelativePath/@EntryValue">..\..\..\Magenta_str\ResharperSettings.DotSettings</s:String>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=D953F55F3B9CF84196B4A4A0385A2EF3/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=FileD953F55F3B9CF84196B4A4A0385A2EF3/@KeyIndexDefined">True</s:Boolean>
+	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=FileD953F55F3B9CF84196B4A4A0385A2EF3/RelativePriority/@EntryValue">1</s:Double></wpf:ResourceDictionary>

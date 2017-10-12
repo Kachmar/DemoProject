@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSTournaments.Service", "CS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSTournaments.DataAccess", "CSTournaments.DataAccess\CSTournaments.DataAccess.csproj", "{70B89E5D-2EA8-46A3-B133-428750F8D1B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSTournament.Extensibility", "CSTournament.Extensibility\CSTournament.Extensibility.csproj", "{8C20CF50-9912-4122-9DEC-F5FD13C0D9C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSTournaments.Extensibility", "CSTournament.Extensibility\CSTournaments.Extensibility.csproj", "{8C20CF50-9912-4122-9DEC-F5FD13C0D9C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSTournaments.Test", "CSTournaments.Test\CSTournaments.Test.csproj", "{C4F8C3C7-9859-40B6-8FB2-9E5EC201E291}"
 EndProject

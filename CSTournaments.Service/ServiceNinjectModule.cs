@@ -1,5 +1,4 @@
-﻿using CSTournament.Extensibility.DataAccess;
-using CSTournament.Extensibility.Service;
+﻿using CSTournaments.Extensibility.Service;
 using Ninject.Modules;
 
 namespace CSTournaments.Service
@@ -8,8 +7,9 @@ namespace CSTournaments.Service
     {
         public override void Load()
         {
-            Bind<ITournamentService>().To<TournamentService>();
-            Bind<IGuidProvider>().To<GuidProvider>();
+            this.Bind<ITournamentService>().To<TournamentService>();
+            this.Bind<IGameService>().To<GameService>();
+            this.Bind<ITournamentValidator>().To<TournamentValidator>();
         }
     }
 }

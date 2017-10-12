@@ -43,15 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GuidProvider.cs" />
+    <Compile Include="ServiceBase.cs" />
     <Compile Include="ServiceNinjectModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GameService.cs" />
     <Compile Include="TournamentService.cs" />
+    <Compile Include="TournamentValidator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CSTournament.Extensibility\CSTournament.Extensibility.csproj">
+    <ProjectReference Include="..\CSTournament.Extensibility\CSTournaments.Extensibility.csproj">
       <Project>{8C20CF50-9912-4122-9DEC-F5FD13C0D9C4}</Project>
-      <Name>CSTournament.Extensibility</Name>
+      <Name>CSTournaments.Extensibility</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -55,7 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TournamentServiceTest.cs" />
+    <Compile Include="GameServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTestBase.cs" />
   </ItemGroup>
@@ -63,6 +63,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CSTournament.Extensibility\CSTournaments.Extensibility.csproj">
+      <Project>{8C20CF50-9912-4122-9DEC-F5FD13C0D9C4}</Project>
+      <Name>CSTournaments.Extensibility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CSTournaments.Service\CSTournaments.Service.csproj">
       <Project>{A92DE83F-E1FE-4B29-9BD7-C211ED8AD320}</Project>
       <Name>CSTournaments.Service</Name>

@@ -165,13 +165,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\PlayersController.cs" />
+    <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Controllers\TournamentsController.cs" />
+    <Compile Include="Dtos\GameClientData.cs" />
+    <Compile Include="Dtos\PlayerClientData.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -191,9 +192,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CSTournament.Extensibility\CSTournament.Extensibility.csproj">
+    <ProjectReference Include="..\CSTournament.Extensibility\CSTournaments.Extensibility.csproj">
       <Project>{8C20CF50-9912-4122-9DEC-F5FD13C0D9C4}</Project>
-      <Name>CSTournament.Extensibility</Name>
+      <Name>CSTournaments.Extensibility</Name>
     </ProjectReference>
     <ProjectReference Include="..\CSTournaments.DataAccess\CSTournaments.DataAccess.csproj">
       <Project>{70b89e5d-2ea8-46a3-b133-428750f8d1b4}</Project>

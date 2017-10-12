@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Http;
-using CSTournament.Extensibility;
-using CSTournament.Extensibility.Entities;
-using CSTournament.Extensibility.Exceptions;
-using CSTournament.Extensibility.Service;
+using CSTournaments.Extensibility.Entities;
+using CSTournaments.Extensibility.Exceptions;
+using CSTournaments.Extensibility.Service;
 
 namespace CSTournaments.WebApi.Controllers
 {
@@ -18,17 +16,16 @@ namespace CSTournaments.WebApi.Controllers
             this.tournamentService = tournamentService;
         }
 
-        [Route("{tournament_id}")]
         [HttpGet]
-        public Tournament Get(Guid id)
+        public Tournament Get(int id)
         {
-            return tournamentService.GetDetails(id);
+            return this.tournamentService.GetDetails(id);
         }
 
         [HttpGet]
         public IEnumerable<Tournament> Get()
         {
-            return tournamentService.GetTournaments();
+            return this.tournamentService.GetTournaments();
         }
 
         [HttpPost]
@@ -36,7 +33,7 @@ namespace CSTournaments.WebApi.Controllers
         {
             try
             {
-                return tournamentService.Create(name);
+                return this.tournamentService.Create(name);
             }
             catch (CSTournamentDomainException)
             {
@@ -45,46 +42,31 @@ namespace CSTournaments.WebApi.Controllers
         }
 
         [HttpDelete]
-        public IHttpActionResult Delete(Guid id)
+        public IHttpActionResult Delete(int id)
         {
             try
             {
-                tournamentService.Delete(id);
-                return Ok();
+                this.tournamentService.Delete(id);
+                return this.Ok();
             }
             catch (CSTournamentDomainException ex)
             {
-                return BadRequest(ex.Message);
+                return this.BadRequest(ex.Message);
             }
         }
 
-        [Route("{tournament_id}/players/{player_id}")]
+        [Route("{tournamentId}/players/{playerId}")]
         [HttpPatch]
-        public IHttpActionResult AssignPlayerToTournament([FromUri] Guid tournamentId, [FromUri] Guid playerId)
+        public IHttpActionResult AssignPlayerToTournament([FromUri] int tournamentId, [FromUri] int playerId)
         {
             try
             {
-                tournamentService.AssignPlayerToTournament(tournamentId, playerId);
-                return Ok();
+                this.tournamentService.AssignPlayerToTournament(tournamentId, playerId);
+                return this.Ok();
             }
             catch (CSTournamentDomainException ex)
             {
-                return BadRequest(ex.Message);
-            }
-        }
-
-        [Route("{game_id}/players/{player_id}")]
-        [HttpPatch]
-        public IHttpActionResult AssignPlayerToGame([FromUri] Guid gameId, [FromUri] Guid playerId)
-        {
-            try
-            {
-                tournamentService.AssignPlayerToGame(gameId, playerId);
-                return Ok();
-            }
-            catch (CSTournamentDomainException ex)
-            {
-                return BadRequest(ex.Message);
+                return this.BadRequest(ex.Message);
             }
         }
     }

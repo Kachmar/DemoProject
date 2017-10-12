@@ -7,8 +7,8 @@
     <ProjectGuid>{8C20CF50-9912-4122-9DEC-F5FD13C0D9C4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CSTournament.Extensibility</RootNamespace>
-    <AssemblyName>CSTournament.Extensibility</AssemblyName>
+    <RootNamespace>CSTournaments.Extensibility</RootNamespace>
+    <AssemblyName>CSTournaments.Extensibility</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,14 +46,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\Repositories\IGameRepository.cs" />
+    <Compile Include="DataAccess\Repositories\IPlayerRepository.cs" />
+    <Compile Include="DataAccess\Repositories\ITournamentRepository.cs" />
     <Compile Include="Exceptions\CSTournamentDomainException.cs" />
-    <Compile Include="DataAccess\IGuidProvider.cs" />
+    <Compile Include="Service\IGameService.cs" />
     <Compile Include="Service\ITournamentService.cs" />
     <Compile Include="Entities\Game.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Tournament.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ITournamentValidator.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

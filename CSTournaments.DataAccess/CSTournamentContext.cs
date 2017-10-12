@@ -8,12 +8,15 @@ namespace CSTournaments.DataAccess
     {
         public CSTournamentContext() : base("CSTournamentContext")
         {
-            InitializeDatabase();
+            this.InitializeDatabase();
         }
 
         public DbSet<Tournament> Tournaments { get; set; }
-        //public DbSet<Enrollment> Enrollments { get; set; }
-        //public DbSet<Course> Courses { get; set; }
+
+        public DbSet<Game> Games { get; set; }
+
+        public DbSet<Player> Players { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -23,9 +26,9 @@ namespace CSTournaments.DataAccess
         private void InitializeDatabase()
         {
             Database.SetInitializer(new DbInitializer());
-            if (!Database.Exists())
+            if (!this.Database.Exists())
             {
-                Database.Initialize(true);
+                this.Database.Initialize(true);
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CSTournament.Extensibility.Exceptions
+namespace CSTournaments.Extensibility.Exceptions
 {
     public class CSTournamentDomainException : Exception
     {

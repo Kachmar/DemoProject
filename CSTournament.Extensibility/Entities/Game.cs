@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace CSTournament.Extensibility.Entities
+namespace CSTournaments.Extensibility.Entities
 {
     public class Game
     {
-        public Game(Guid id, string name, Tournament tournament)
+        public Game(int id, string name, Tournament tournament)
         {
-            Name = name;
-            Tournament = tournament;
-            Id = id;
-            Players = new List<Player>();
+            this.Name = name;
+            this.Tournament = tournament;
+            this.Id = id;
+            this.Players = new List<Player>();
         }
 
-        public Guid Id { get; }
+        public int Id { get; }
 
         public string Name { get; }
 

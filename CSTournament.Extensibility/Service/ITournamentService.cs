@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using CSTournament.Extensibility.Entities;
+﻿using System.Collections.Generic;
+using CSTournaments.Extensibility.Entities;
 
-namespace CSTournament.Extensibility.Service
+namespace CSTournaments.Extensibility.Service
 {
     public interface ITournamentService
     {
-        Tournament GetDetails(Guid id);
+        Tournament GetDetails(int id);
+
         IReadOnlyCollection<Tournament> GetTournaments();
+
         Tournament Create(string name);
-        void Delete(Guid id);
-        void AssignPlayerToTournament(Guid tournamentId, Guid playerId);
-        void AssignPlayerToGame(Guid gameId, Guid playerId);
+
+        void Delete(int id);
+
+        void AssignPlayerToTournament(int tournamentId, int playerId);
     }
 }
