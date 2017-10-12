@@ -5,7 +5,7 @@ namespace CSTournaments.Extensibility.Service
 {
     public interface ITournamentService
     {
-        Tournament GetDetails(int id);
+        TournamentInfo GetDetails(int id);
 
         IReadOnlyCollection<Tournament> GetTournaments();
 

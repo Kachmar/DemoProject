@@ -22,7 +22,7 @@ namespace CSTournaments.Service
             return this.tournamentRepository.GetAll();
         }
 
-        public Tournament GetDetails(int id)
+        public TournamentInfo GetDetails(int id)
         {
             return this.tournamentRepository.Get(id);
         }

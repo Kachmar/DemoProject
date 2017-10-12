@@ -49,6 +49,7 @@
     <Compile Include="DataAccess\Repositories\IGameRepository.cs" />
     <Compile Include="DataAccess\Repositories\IPlayerRepository.cs" />
     <Compile Include="DataAccess\Repositories\ITournamentRepository.cs" />
+    <Compile Include="Entities\TournamentInfo.cs" />
     <Compile Include="Exceptions\CSTournamentDomainException.cs" />
     <Compile Include="Service\IGameService.cs" />
     <Compile Include="Service\ITournamentService.cs" />

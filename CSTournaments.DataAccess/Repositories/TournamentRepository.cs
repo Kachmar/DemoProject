@@ -17,7 +17,7 @@ namespace CSTournaments.DataAccess.Repositories
             throw new NotImplementedException();
         }
 
-        public Tournament Get(int id)
+        public TournamentInfo Get(int id)
         {
             throw new NotImplementedException();
         }
@@ -27,7 +27,7 @@ namespace CSTournaments.DataAccess.Repositories
             throw new NotImplementedException();
         }
 
-        public void Update(Tournament tournament)
+        public void Update(TournamentInfo tournament)
         {
             throw new NotImplementedException();
         }

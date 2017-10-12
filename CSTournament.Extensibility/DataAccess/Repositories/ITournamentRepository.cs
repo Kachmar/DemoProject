@@ -9,10 +9,10 @@ namespace CSTournaments.Extensibility.DataAccess.Repositories
 
         int Create(string tournamentName);
 
-        Tournament Get(int id);
+        TournamentInfo Get(int id);
 
         void Delete(int id);
 
-        void Update(Tournament tournament);
+        void Update(TournamentInfo tournament);
     }
 }

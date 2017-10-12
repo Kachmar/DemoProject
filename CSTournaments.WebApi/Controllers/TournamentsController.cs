@@ -6,6 +6,9 @@ using CSTournaments.Extensibility.Service;
 
 namespace CSTournaments.WebApi.Controllers
 {
+    /// <summary>
+    /// Api for managing CS tournaments
+    /// </summary>
     [RoutePrefix("tournaments")]
     public class TournamentsController : ApiController
     {
@@ -15,9 +18,9 @@ namespace CSTournaments.WebApi.Controllers
         {
             this.tournamentService = tournamentService;
         }
-
+   
         [HttpGet]
-        public Tournament Get(int id)
+        public TournamentInfo Get(int id)
         {
             return this.tournamentService.GetDetails(id);
         }

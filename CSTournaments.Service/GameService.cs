@@ -7,10 +7,12 @@ namespace CSTournaments.Service
 {
     internal class GameService : ServiceBase, IGameService
     {
+        private readonly ITournamentRepository tournamentRepository;
         private readonly IGameRepository gameRepository;
 
-        public GameService(IPlayerRepository playerRepository, IGameRepository gameRepository) : base(playerRepository)
+        public GameService(IPlayerRepository playerRepository, ITournamentRepository tournamentRepository, IGameRepository gameRepository) : base(playerRepository)
         {
+            this.tournamentRepository = tournamentRepository;
             this.gameRepository = gameRepository;
         }
 
@@ -24,7 +26,14 @@ namespace CSTournaments.Service
 
             Player player = this.GetPlayer(playerId);
 
-            if (!game.Tournament.Players.Contains(player))
+            if (player == null)
+            {
+                throw new CSTournamentDomainException($"No such player with Id {playerId}.");
+            }
+
+            var tournamentInfo = this.tournamentRepository.Get(game.Tournament.Id);
+
+            if (!tournamentInfo.Players.Contains(player))
             {
                 throw new CSTournamentDomainException($"Player with Id {playerId} is not assigned to the tournament with Id {game.Tournament.Id}.");
             }
