@@ -10,5 +10,10 @@ namespace CSTournaments.DataAccess.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public void Save( Game game )
+        {
+            throw new NotImplementedException();
+        }
     }
 }

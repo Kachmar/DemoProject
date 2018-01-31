@@ -5,5 +5,7 @@ namespace CSTournaments.Extensibility.DataAccess.Repositories
     public interface IGameRepository
     {
         Game Get(int gameId);
+
+        void Save(Game game);
     }
 }

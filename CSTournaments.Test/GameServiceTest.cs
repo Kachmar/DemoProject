@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+
 using CSTournaments.Extensibility.DataAccess.Repositories;
 using CSTournaments.Extensibility.Entities;
 using CSTournaments.Service;
@@ -8,7 +10,7 @@ using NUnit.Framework;
 namespace CSTournaments.Test
 {
     [TestFixture]
-    public class GameServiceTest : UnitTestBase
+    public class GameServiceTest
     {
         private const string CategoryName = "CSTournaments.Service. " + nameof(GameService) + ". ";
         private const string AssignPlayerToGameMethod = nameof(GameService.AssignPlayerToGame) + ". ";
@@ -39,7 +41,7 @@ namespace CSTournaments.Test
         [TestCase(TestName = AssignPlayerToGameMethod + "Game does not exist.")]
         public void AssignPlayerToGameNoGameFoundThrowsException()
         {
-            var gameService = new GameService(null, null, this.GetGameRepositoryMock(false));
+            var gameService = new GameService(null, null, this.GetGameRepositoryMock(false).Object);
             Assert.That(
                 ()
                 => gameService.AssignPlayerToGame(GameId, PlayerId),
@@ -50,7 +52,7 @@ namespace CSTournaments.Test
         [TestCase(TestName = AssignPlayerToGameMethod + "Player does not exist.")]
         public void AssignPlayerToGameNoPlayerFoundThrowsException()
         {
-            var gameService = new GameService(this.GetPlayerRepositoryMock(false), null, this.GetGameRepositoryMock(true));
+            var gameService = new GameService(this.GetPlayerRepositoryMock(false), null, this.GetGameRepositoryMock(true).Object);
             Assert.That(
                 ()
                     => gameService.AssignPlayerToGame(GameId, PlayerId),
@@ -61,7 +63,7 @@ namespace CSTournaments.Test
         [TestCase(TestName = AssignPlayerToGameMethod + "Player is not assigned to the tournament.")]
         public void AssignPlayerToGameNotAssignedThrowsException()
         {
-            var gameService = new GameService(this.GetPlayerRepositoryMock(true), this.GetTournamentRepositoryMock(), this.GetGameRepositoryMock(true));
+            var gameService = new GameService(this.GetPlayerRepositoryMock(true), this.GetTournamentRepositoryMock(), this.GetGameRepositoryMock(true).Object);
             Assert.That(
                 () =>
                 gameService.AssignPlayerToGame(GameId, PlayerId),
@@ -73,27 +75,30 @@ namespace CSTournaments.Test
         public void AssignPlayerToGameSuccess()
         {
             this.tournament.Players.Add(this.player);
-            var gameService = new GameService(this.GetPlayerRepositoryMock(true), this.GetTournamentRepositoryMock(), this.GetGameRepositoryMock(true));
+            var gameRepositoryMock = this.GetGameRepositoryMock(true);
+            var gameService = new GameService(this.GetPlayerRepositoryMock(true), this.GetTournamentRepositoryMock(), gameRepositoryMock.Object);
             gameService.AssignPlayerToGame(GameId, PlayerId);
+            Assert.IsTrue(this.game.Players.Any());
+            gameRepositoryMock.Verify(repo => repo.Save(this.game), Times.Once());
         }
 
         private ITournamentRepository GetTournamentRepositoryMock()
         {
-            Mock<ITournamentRepository> mock = this.MockRepository.Create<ITournamentRepository>();
+            Mock<ITournamentRepository> mock = new Mock<ITournamentRepository>();
             mock.Setup(tournamentRepository => tournamentRepository.Get(TournamentId)).Returns(this.tournament);
             return mock.Object;
         }
 
-        private IGameRepository GetGameRepositoryMock(bool gameExists)
+        private Mock<IGameRepository> GetGameRepositoryMock(bool gameExists)
         {
-            Mock<IGameRepository> mock = this.MockRepository.Create<IGameRepository>();
+            Mock<IGameRepository> mock = new Mock<IGameRepository>();
             mock.Setup(gameRepository => gameRepository.Get(GameId)).Returns(gameExists ? this.game : null);
-            return mock.Object;
+            return mock;
         }
 
         private IPlayerRepository GetPlayerRepositoryMock(bool playerExists)
         {
-            Mock<IPlayerRepository> mock = this.MockRepository.Create<IPlayerRepository>();
+            Mock<IPlayerRepository> mock = new Mock<IPlayerRepository>();
             mock.Setup(playerRepository => playerRepository.Get(PlayerId)).Returns(playerExists ? this.player : null);
             return mock.Object;
         }

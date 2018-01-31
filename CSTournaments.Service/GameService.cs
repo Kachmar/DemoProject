@@ -1,3 +1,6 @@
+using System.Configuration;
+using System.Data.SqlClient;
+
 using CSTournaments.Extensibility.DataAccess.Repositories;
 using CSTournaments.Extensibility.Entities;
 using CSTournaments.Extensibility.Exceptions;
@@ -31,11 +34,49 @@ namespace CSTournaments.Service
                 throw new CSTournamentDomainException($"No such player with Id {playerId}.");
             }
 
-            var tournamentInfo = this.tournamentRepository.Get(game.Tournament.Id);
+            TournamentInfo tournamentInfo = this.tournamentRepository.Get(game.Tournament.Id);
 
             if (!tournamentInfo.Players.Contains(player))
             {
                 throw new CSTournamentDomainException($"Player with Id {playerId} is not assigned to the tournament with Id {game.Tournament.Id}.");
+            }
+
+            game.Players.Add(player);
+
+            this.gameRepository.Save(game);
+        }
+
+        private TournamentInfo GetTournament(int tournamentId)
+        {
+            ConnectionStringSettings connectionString = ConfigurationManager.ConnectionStrings["LegacyDb"];
+            using (SqlConnection connection = new SqlConnection(connectionString.ConnectionString))
+            {
+                connection.Open();
+
+                string query = $@"some query{tournamentId}";
+                using (var command = new SqlCommand(query, connection))
+                {
+                    var result = (TournamentInfo)command.ExecuteScalar();
+                    connection.Close();
+                    return result;
+                }
+            }
+        }
+
+        private Game GetGame(int gameId)
+        {
+            ConnectionStringSettings connectionString = ConfigurationManager.ConnectionStrings["LegacyDb"];
+            using (SqlConnection connection = new SqlConnection(connectionString.ConnectionString))
+            {
+                connection.Open();
+
+                string query = $@"some query{gameId}";
+                using (var command = new SqlCommand(query, connection))
+                {
+                    var result = (Game)command.ExecuteScalar();
+                    connection.Close();
+                    return result;
+                }
             }
         }
     }
